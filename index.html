@@ -8,42 +8,8 @@
     <title>SM Hang man</title>
     
     <link rel="stylesheet" href="bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="hangman.css"> -->
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background: hsla(217, 100%, 50%, 1);
-            background: linear-gradient(180deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
-            background: -moz-linear-gradient(180deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
-            background: -webkit-linear-gradient(180deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1);
-        }
-        
-        * {
-            cursor: pointer;
-        }
-        
-        .container {
-            margin-top: 5px;
-            max-width: 580px;
-            color: rgb(192, 192, 192);
-            font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.329);
-            box-shadow: -1px -1px 81px -20px rgba(0, 0, 0, 0.8);
-            -webkit-box-shadow: -1px -1px 81px -20px rgba(0, 0, 0, 0.8);
-            -moz-box-shadow: -1px -1px 81px -20px rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-        }
-        
-        img {
-            height: 45vh;
-        }
-        
-        h1 {
-            color: #FFFFFF;
-            text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
-        }
-    </style>
+     <link rel="stylesheet" href="hangman.css"> 
+   
 </head>
 
 <body>
@@ -60,107 +26,8 @@
         </div>
     </div>
     </div>
-    <!-- <script src="hangman.js"></script> -->
-    <script>
-        var programming_languages = [
-            "python",
-            "javascript",
-            "mongodb",
-            "json",
-            "java",
-            "html",
-            "css",
-            "c",
-            "csharp",
-            "php",
-            "sql",
-            "ruby"
-        ]
-
-        let answer = '';
-        let maxWrong = 6;
-        let mistakes = 0;
-        let guessed = [];
-        let wordStatus = null;
-
-        function randomWord() {
-            answer = programming_languages[Math.floor(Math.random() * programming_languages.length)];
-        }
-
-        function generateButtons() {
-            let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
-                `
-      <button
-        class="btn btn-primary m-1"
-        id='` + letter + `'
-        onClick="handleGuess('` + letter + `')"
-      >
-        ` + letter + `
-      </button>
-    `).join('');
-
-            document.getElementById('keyboard').innerHTML = buttonsHTML;
-        }
-
-        function handleGuess(chosenLetter) {
-            guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
-            document.getElementById(chosenLetter).setAttribute('disabled', true);
-
-            if (answer.indexOf(chosenLetter) >= 0) {
-                guessedWord();
-                checkIfGameWon();
-            } else if (answer.indexOf(chosenLetter) === -1) {
-                mistakes++;
-                updateMistakes();
-                checkIfGameLost();
-                updateHangmanPicture();
-            }
-        }
-
-        function updateHangmanPicture() {
-            document.getElementById('hangmanPic').src = './images/' + mistakes + '.jpg';
-        }
-
-        function checkIfGameWon() {
-            if (wordStatus === answer) {
-                document.getElementById('keyboard').innerHTML = 'You Won!!!';
-            }
-        }
-
-        function checkIfGameLost() {
-            if (mistakes === maxWrong) {
-                document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
-                document.getElementById('keyboard').innerHTML = 'You Lost!!!';
-            }
-        }
-
-        function guessedWord() {
-            wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-
-            document.getElementById('wordSpotlight').innerHTML = wordStatus;
-        }
-
-        function updateMistakes() {
-            document.getElementById('mistakes').innerHTML = mistakes;
-        }
-
-        function reset() {
-            mistakes = 0;
-            guessed = [];
-            document.getElementById('hangmanPic').src = './images/0.jpg';
-
-            randomWord();
-            guessedWord();
-            updateMistakes();
-            generateButtons();
-        }
-
-        document.getElementById('maxWrong').innerHTML = maxWrong;
-
-        randomWord();
-        generateButtons();
-        guessedWord();
-    </script>
+    <script src="hangman.js"></script> 
+   
 </body>
 
 </html>
