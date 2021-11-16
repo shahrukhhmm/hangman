@@ -1,0 +1,33 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: hsla(217, 100%, 50%, 1);
+    background: linear-gradient(180deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    background: -moz-linear-gradient(180deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    background: -webkit-linear-gradient(180deg, hsla(217, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1);
+}
+
+* {
+    cursor: pointer;
+}
+
+.container {
+    margin-top: 5px;
+    max-width: 580px;
+    color: rgb(192, 192, 192);
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.329);
+    box-shadow: -1px -1px 81px -20px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: -1px -1px 81px -20px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: -1px -1px 81px -20px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+img {
+    height: 45vh;
+}
+
+h1 {
+    color: #FFFFFF;
+    text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+}
